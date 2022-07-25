@@ -18,7 +18,7 @@ CURRENT_DIR = os.getcwd()
 IMAGE_FOLDER = "archive/flower_images/flower_images"
 RESIZED_IMAGES = "archive/resized_images"
 
-vidCodec = VideoWriter_fourcc(*'MP42')
+vidCodec = VideoWriter_fourcc(*"mp4v")
 
 
 def stillFrame(video, frame, n_frame):
@@ -81,7 +81,7 @@ def getFrameWithAnimation(video, initial_frame, final_frame):
 
 def generate_video(imagesList, height, width):
     resized_image_folder = os.path.join(CURRENT_DIR, RESIZED_IMAGES)
-    video_name = 'mygeneratedvideo.avi'
+    video_name = 'mygeneratedvideo.mp4'
 
     images = imagesList
     random.shuffle(images)
