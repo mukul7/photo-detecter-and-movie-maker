@@ -4,8 +4,6 @@ import random
 import cv2
 from PIL import Image
 from cv2 import VideoWriter_fourcc
-from matplotlib import animation
-import numpy as np
 import itertools
 
 

@@ -1,6 +1,5 @@
 # for loading/processing the images
 from tensorflow.keras.preprocessing.image import load_img
-from tensorflow.keras.preprocessing.image import img_to_array
 from keras.applications.vgg16 import preprocess_input
 
 # models
@@ -14,12 +13,8 @@ from sklearn.decomposition import PCA
 # for everything else
 import os
 import numpy as np
-import matplotlib.pyplot as plt
-from random import randint
 import pandas as pd
 import pickle
-
-from PIL import Image
 
 CURRENT_DIR = os.getcwd()
 IMAGE_FOLDER = "archive/flower_images/flower_images"
