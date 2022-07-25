@@ -48,6 +48,6 @@ Random is used to select random animations between frames and random group.
 
 <figure class="video_container">
   <video controls="true" allowfullscreen="true">
-    <source src="./demo.mov" type="video/mov">
+    <source src="./mygeneratedvideo.mp4" type="video/mp4">
   </video>
 </figure>
