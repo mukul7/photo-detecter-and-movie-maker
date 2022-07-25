@@ -47,7 +47,5 @@ Random is used to select random animations between frames and random group.
 ## Demo Video:
 
 <figure class="video_container">
-  <video controls="true" allowfullscreen="true">
-    <source src="./mygeneratedvideo.mp4" type="video/mp4">
-  </video>
+  <iframe src="https://drive.google.com/file/d/1CEpfZf9QsNqScyQK6tjlUkWzeWX9lVTW/view?usp=sharing" frameborder="0" allowfullscreen="true"> </iframe>
 </figure>
