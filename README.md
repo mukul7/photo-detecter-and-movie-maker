@@ -43,3 +43,11 @@ Video Creation: cv2 is used to process images into video. A random group is sele
 
 Itertools is used to create animation.
 Random is used to select random animations between frames and random group.
+
+## Demo Video:
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="./demo.mov" type="video/mov">
+  </video>
+</figure>
