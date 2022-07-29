@@ -28,18 +28,23 @@ def findModular(frames):
     return int((frames/FRAMES_PER_SEC)/ANIMATION_TIME)
 
 
+def getRandomMusic():
+    return random.choice((os.listdir(os.path.join(CURRENT_DIR, 'archive/music'))))
+
+
 def getFrameWithAnimation(video, initial_frame, final_frame):
     animation = random.randrange(0, 4)
     frame_count = 0
+    # Animation Start revealing from top
     if animation == 0:
         modular = findModular(len(final_frame))
         for y in range(len(final_frame)):
             for x in range(len(final_frame[y])):
-                cv2.circle(initial_frame, (y, x), 1, (int(final_frame[x][y][0]), int(
-                    final_frame[x][y][1]), int(final_frame[x][y][2])), -1)
+                initial_frame[y][x] = final_frame[y][x]
             if(frame_count % modular == 0):
                 video.write(initial_frame)
             frame_count += 1
+    # Drop from top
     elif animation == 1:
         modular = findModular(len(final_frame))
         for y in range(len(final_frame)):
@@ -51,6 +56,7 @@ def getFrameWithAnimation(video, initial_frame, final_frame):
             if(frame_count % modular == 0):
                 video.write(initial_frame)
             frame_count += 1
+    # Fade In
     elif animation == 2:
         frame_count = 0
         comblist = list(itertools.product(
@@ -63,7 +69,7 @@ def getFrameWithAnimation(video, initial_frame, final_frame):
             if(frame_count % modular == 0):
                 video.write(initial_frame)
             frame_count += 1
-
+    # Horizonatal Blinds
     elif animation == 3:
         ylist = list(range(len(final_frame)))
         random.shuffle(ylist)
@@ -98,6 +104,10 @@ def generate_video(imagesList, height, width):
     # Deallocating memories taken for window creation
     cv2.destroyAllWindows()
     video.release()  # releasing the video generated
+
+    bg_music = os.path.join(CURRENT_DIR, 'archive/music', getRandomMusic())
+    os.system(
+        "ffmpeg -i "+video_name+" -i " + bg_music + " -map 0 -map 1 -codec copy -shortest " + video_name)
 
 
 with open(os.path.join(CURRENT_DIR, 'dump', 'config.groups'), 'rb') as config_dictionary_file:
